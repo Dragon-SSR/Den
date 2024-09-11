@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>资源列表</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="app">
+        <section v-show="beforeBuy.length">
+            <h2>可选数据</h2>
+            <ul>
+                <li v-for="food in beforeBuy" :key="food.id">
+                    <img :src="food.image">
+                    <span>{{ food.name }}</span>
+                    <input type="checkbox" v-model="food.purchased">
+                </li>
+            </ul>
+        </section>
+
+        <section v-show="afterBuy.length">
+            <h2>已选数据</h2>
+            <ul>
+                <li v-for="food in afterBuy" :key="food.id">
+                    <img :src="food.image">
+                    <span>{{ food.name }}</span>
+                    <input type="checkbox" v-model="food.purchased">
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    record: [
+                        {
+                            serial: "1364316114",
+                            name: "Vipon",
+                            image: "./images/vipon-icon.png",
+                            purchased: false,
+                        },
+                        {
+                            serial: "1389364303",
+                            name: "Sales-aholic.com Deals, Glitches, \u0026 Free Things",
+                            image: "./images/1389364303_55975165384724488_icon.jpg",
+                            purchased: false,
+                        }
+                    ]
+                }
+            },
+            computed: {
+                beforeBuy() {
+                    return this.record.filter(item => !item.purchased);
+                },
+                afterBuy() {
+                    return this.record.filter(item => item.purchased);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
