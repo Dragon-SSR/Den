@@ -3,65 +3,275 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>资源列表</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>商品列表</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
     <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        li {
+            background-image: linear-gradient(to right, #ccc, #ccc);
+            background-position: bottom;
+            background-size: 100% 1px;
+            /* 分割线的高度 */
+            background-repeat: no-repeat;
+            padding: 10px 0;
+            /* 可选内边距 */
+            list-style-type: none;
+            /* 禁止显示点 */
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <section v-show="beforeBuy.length">
-            <h2>可选数据</h2>
+    <div style="display: flex;">
+        <div id="app" style="width: 70%">
+            <h2>{{title}}</h2>
             <ul>
-                <li v-for="food in beforeBuy" :key="food.id">
-                    <img :src="food.image">
-                    <span>{{ food.name }}</span>
-                    <input type="checkbox" v-model="food.purchased">
-                </li>
-            </ul>
-        </section>
+                <li v-for="item in dataList" :key="item.id">
+                    <div style="display: flex;">
 
-        <section v-show="afterBuy.length">
-            <h2>已选数据</h2>
-            <ul>
-                <li v-for="food in afterBuy" :key="food.id">
-                    <img :src="food.image">
-                    <span>{{ food.name }}</span>
-                    <input type="checkbox" v-model="food.purchased">
+                        <div style="width: 20%; ">
+                            <p>{{ item.title }}</p>
+                            <p>月销量：{{ item.monthly_flow }}</p>
+                        </div>
+
+                        <div style="width: 50%;">
+                            <p>提供：{{item.aging}}</p>
+                            <p>{{item.require}}</p>
+                        </div>
+
+                        <div style="width: 30%;">
+                            <p>{{ item.price }}元</p>
+                        </div>
+                    </div>
                 </li>
             </ul>
-        </section>
+        </div>
+
+        <div id="contact" style="width: 30%; margin-right: 20px;">
+            <h2>{{title}}</h2>
+            <img :src="wxImg" style="width: 80%;">
+            <h2>邮箱</h2>
+            <p>技术支持：suirui0126@163.com</p>
+        </div>
     </div>
-
     <script>
         Vue.createApp({
             data() {
                 return {
-                    record: [
+                    title: "商品列表",
+                    dataList: [
                         {
-                            serial: "1364316114",
-                            name: "Vipon",
-                            image: "./images/vipon-icon.png",
-                            purchased: false,
+                            "id": "1",
+                            "title": "vipon",
+                            "url": "https://myvipon.com/",
+                            "monthly_flow": "4.5M",
+                            "type": "首页贴",
+                            "aging": "每天只有3个位置，需要预约排队",
+                            "price": "1100",
+                            "require": "FBA; 四星以上; 30%以上；必须有code; 要提前预约，首页前三位1天，后2天随热度排名在其他区域",
+                            "remark": ""
                         },
                         {
-                            serial: "1389364303",
-                            name: "Sales-aholic.com Deals, Glitches, \u0026 Free Things",
-                            image: "./images/1389364303_55975165384724488_icon.jpg",
-                            purchased: false,
+                            "id": "2",
+                            "title": "1 sale",
+                            "url": "https://www.1sale.com/",
+                            "monthly_flow": "721.2K",
+                            "type": "首页前7行",
+                            "aging": "1天",
+                            "price": "680",
+                            "require": "FBA; 首页前1-7行; 24小时首页帖+newsletter邮件推送，大多数可争取到前3排，优质Listing会尽力争取申请第一排第一位。",
+                            "remark": ""
+                        },
+                        {
+                            "id": "3",
+                            "title": "dealnews",
+                            "url": "https://www.dealnews.com/",
+                            "monthly_flow": "6.3M",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "1150",
+                            "require": "FBA ，上帖较快; 不接受临时涨价; 可以在周一~周五预约周六日的帖子。24小时展示在首页,要求历史低价,也支持FBM，要求店铺好评率不低于70%!",
+                            "remark": ""
+                        },
+                        {
+                            "id": "31",
+                            "title": "dealnews",
+                            "url": "https://www.dealnews.com/",
+                            "monthly_flow": "6.3M",
+                            "type": "首页8天24h滚动",
+                            "aging": "1-2天",
+                            "price": "2900",
+                            "require": "8天24小时滚动栏(Exclusive Discounts);2、当天上，中间可以暂停或者降价，不支持涨价，一个月内上完即可;按热度排序;3、按用户习惯展示，用户看过了，下一次再去搜索的时候，就会按热度排名了，每年10月-12月份涨价",
+                            "remark": ""
+                        },
+                        {
+                            "id": "32",
+                            "title": "dealnews",
+                            "url": "https://www.dealnews.com/",
+                            "monthly_flow": "6.3M",
+                            "type": "首页14天24h滚动",
+                            "aging": "1-2天",
+                            "price": "3800",
+                            "require": "14天24小时滚动栏(Exclusive Discounts);2、当天上，中间可以暂停或者降价，不支持涨价，一个月内上完即可;按热度排序;3、按用户习惯展示，用户看过了，下一次再去搜索的时候，就会按热度排名了，每年10月-12月份涨价",
+                            "remark": ""
+                        },
+                        {
+                            "id": "4",
+                            "title": "dansdeals",
+                            "url": "https://www.dansdeals.com/",
+                            "monthly_flow": "1.9M",
+                            "type": "编辑文章",
+                            "aging": "1-2天",
+                            "price": "3300",
+                            "require": "不接受临时涨价; DansDeals是一个美国知名的优惠和折扣信息分享网站，分享航空旅行相关攻略和折扣信息，网站上还有消费电子，家用家居等相关常规的deal折扣信息。推荐电子，家居家用，户外旅行等产品。编辑审核，提前2天预约",
+                            "remark": ""
+                        },
+                        {
+                            "id": "5",
+                            "title": "fabulesslyfrugal",
+                            "url": "https://fabulesslyfrugal.com/",
+                            "monthly_flow": "217.9K",
+                            "type": "编辑贴",
+                            "aging": "1-3天",
+                            "price": "240",
+                            "require": "编辑发帖，发帖时间1-3天，女性为主的网站，适合厨房、家居、烹饪、厨具、美妆、时尚类产品，女性用户达68%，不发违禁品",
+                            "remark": "女性网站"
+                        },
+                        {
+                            "id": "6",
+                            "title": "freestufffinder",
+                            "url": "https://www.freestufffinder.com/",
+                            "monthly_flow": "668.5K",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "1050",
+                            "require": "1星+2星<=10%，Review50+，最早评价发布2个月前，折扣不能仅针对会员，节假日价格会调整",
+                            "remark": "女性网站"
+                        },
+                        {
+                            "id": "7",
+                            "title": "edealinfo",
+                            "url": "https://www.edealinfo.com/",
+                            "monthly_flow": "2.1M",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "360",
+                            "require": "编辑帖，合作很久的编辑，上帖率高",
+                            "remark": ""
+                        },
+                        {
+                            "id": "72",
+                            "title": "edealinfo",
+                            "url": "https://www.edealinfo.com/",
+                            "monthly_flow": "2.1M",
+                            "type": "用户贴",
+                            "aging": "1天",
+                            "price": "30",
+                            "require": "折扣发布在用户分享界面，流量较小",
+                            "remark": ""
+                        },
+                        {
+                            "id": "8",
+                            "title": "ihotoffers",
+                            "url": "https://ihotoffers.com/",
+                            "monthly_flow": "737.5K",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "550",
+                            "require": "编辑发帖，适合电子产品、家居类、女性产品等",
+                            "remark": ""
+                        },
+                        {
+                            "id": "9",
+                            "title": "21usdeal",
+                            "url": "https://www.21usdeal.com/",
+                            "monthly_flow": "251.9K",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "580",
+                            "require": "中英文网站，在美华人首页，全品类，网站月访问量超88K，提交后1-2天发帖",
+                            "remark": ""
+                        },
+                        {
+                            "id": "10",
+                            "title": "swaggrabber",
+                            "url": "https://swaggrabber.com/",
+                            "monthly_flow": "44.1K",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "90",
+                            "require": "支持FBM; 要审帖; 不发成人用品，枪支，喜欢家庭友好型的产品，女性产品更适合，服装，家居，电子 ，宠物都可以试一下，有些产品出单不错！",
+                            "remark": "女性网站"
+                        },
+                        {
+                            "id": "11",
+                            "title": "shopsale",
+                            "url": "https://shopsale.com/",
+                            "monthly_flow": "77.5K",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "550",
+                            "require": "编辑贴，500k+ 读者",
+                            "remark": ""
+                        },
+                        {
+                            "id": "12",
+                            "title": "dealsofamerica",
+                            "url": "https://www.dealsofamerica.com/",
+                            "monthly_flow": "1.5M",
+                            "type": "首页贴",
+                            "aging": "1-2天",
+                            "price": "650",
+                            "require": "网站月度访问量200万，是美国本土折扣促销站点，家居/庭院/工具/电脑配件较受欢迎，其它品类都可尝试。促销活动由编辑审核并发布促销活动，发布后在首页展示，然后慢慢下沉。可发亚马逊可发沃尔玛，建议至少4星；折后价不高于同品类价",
+                            "remark": ""
+                        },
+                        {
+                            "id": "13",
+                            "title": "slickdeals",
+                            "url": "https://slickdeals.net/",
+                            "monthly_flow": "100M",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "200",
+                            "require": "北美最大的论坛类促销网站，亚马逊流量来源排名前10的资源。全品类，电子类最佳，家居美妆户外等,1、Feedback>1000 & 评价>50，评分4星以上，Fakespot要在C以上，折后价不高于Slickdeals同类，折扣码显示在前台。 2、上帖账号等级随机，不能指定。上帖无质保，如果被删了不会再重新上。 特殊日期不上贴。",
+                            "remark": ""
+                        },
+                        {
+                            "id": "131",
+                            "title": "slickdeals",
+                            "url": "https://slickdeals.net/",
+                            "monthly_flow": "100M",
+                            "type": "红人编辑贴",
+                            "aging": "1-2天",
+                            "price": "1300-2800",
+                            "require": "要求同上，红人质量不一样价格不一样，会影响帖子热度",
+                            "remark": ""
+                        },
+                        {
+                            "id": "14",
+                            "title": "Hip2save",
+                            "url": "https://hip2save.com/",
+                            "monthly_flow": "1.8M",
+                            "type": "编辑贴",
+                            "aging": "1-2天",
+                            "price": "3700",
+                            "require": "Fakespot.com上的评分必须为B或更高 1.产品必须有至少40条以上的正面评论和至少4颗星，并且没有近期的多个负面评论。50%off+优先上帖",
+                            "remark": "女性网站"
                         }
+
                     ]
-                }
-            },
-            computed: {
-                beforeBuy() {
-                    return this.record.filter(item => !item.purchased);
-                },
-                afterBuy() {
-                    return this.record.filter(item => item.purchased);
                 }
             }
         }).mount('#app');
+
+        Vue.createApp({
+            data() {
+                return {
+                    title: "联系方式",
+                    wxImg: "./images/iv_wx.png"
+                }
+            }
+        }).mount('#contact');
     </script>
 </body>
 
