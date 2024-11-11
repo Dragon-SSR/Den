@@ -37,11 +37,22 @@
 
                         <div style="width: 50%;padding: 0.5rem;text-align: start;">
                             <h2 style="font-weight: bold; font-size: 20px;color: #111">标题：{{ item.aging }}</h2>
+                            <div style="display: inline-block; padding: 0.1rem 0.3rem; border: 2px solid blue; border-radius: 5px; color: blue; font-size: 14px;">
+                                标签文本
+                            </div>
+                            <div style="font-size: 14px;">
+                                资源评分：<span style="color: orange; font-weight: bold;">4.4</span>
+                            </div>
                             <p>{{ item.require }}</p>
                         </div>
 
-                        <div style="width: 30%;">
-                            <p>{{ item.price }}元</p>
+                        <div style="width: 30%;padding: 0.5rem;text-align: end;">
+                            <img :src="item.image_url" style="width: 16px; height: auto; aspect-ratio: 2 / 1; object-fit: cover;border: 2px solid #ccc; border-radius: 10px;" alt="商品图片">
+                            <p style="color: #333;font-size: 13px; margin: 0;">原价：¥{{ item.price }}元</p>
+                            <p style="color: orange; font-size: 20px;margin: 0;">会员价：¥{{ item.price }}元</p>
+                            <button style="background-color: green; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                                立即下单
+                            </button>
                         </div>
                     </div>
                 </li>
