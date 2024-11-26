@@ -1,291 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
-    <title>商品列表</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://unpkg.com/vue@3"></script>
-    <style>
-        li {
-            background-image: linear-gradient(to right, #ccc, #ccc);
-            background-position: bottom;
-            background-size: 100% 1px;
-            /* 分割线的高度 */
-            background-repeat: no-repeat;
-            padding: 10px 0;
-            /* 可选内边距 */
-            list-style-type: none;
-            /* 禁止显示点 */
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5 首页</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 
 <body>
-    <div style="display: flex;">
+    <!-- 标题区域 -->
+    <header>
+        <!-- logo -->
+        <div class="logo">
+            <div class="logo-container">
+                <img src="./images/iv_wx.png" alt="示例图片">
+            </div>
+            <div class="text-container">
+                <p>这是第一行</p>
+                <p>这是第二行</p>
+            </div>
+        </div>
+        <!-- logo -->
 
-        <div id="app" style="width: 70%">
-            <h2>{{title}}</h2>
-            <ul>
-                <li v-for="item in dataList" :key="item.id">
-                    <div style="display: flex;width:100%">
+        <!-- 引导页 -->
+        <div class="guide-pages">
 
-                        <div style="width:20%;padding: 0.5rem; text-align: center;">
-                            <img :src="item.image_url" style="width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover;border: 2px solid #ccc; border-radius: 10px;" alt="商品图片">
-                            <p>月销量：{{ item.monthly_flow }}</p>
-                        </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
 
-                        <div style="width: 50%;padding: 0.5rem;text-align: start;">
-                            <h2 style="font-weight: bold; font-size: 20px;color: #111">标题：{{ item.aging }}</h2>
-                            <div style="display: inline-block; padding: 0.1rem 0.3rem; border: 2px solid blue; border-radius: 5px; color: blue; font-size: 14px;">
-                                标签文本
-                            </div>
-                            <div style="font-size: 14px;">
-                                资源评分：<span style="color: orange; font-weight: bold;">4.4</span>
-                            </div>
-                            <p>{{ item.require }}</p>
-                        </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
 
-                        <div style="width: 30%;padding: 0.5rem;text-align: end;">
-                            <img :src="item.image_url" style="width: 16px; height: auto; aspect-ratio: 2 / 1; object-fit: cover;border: 2px solid #ccc; border-radius: 10px;" alt="商品图片">
-                            <p style="color: #333;font-size: 13px; margin: 0;">原价：¥{{ item.price }}元</p>
-                            <p style="color: orange; font-size: 20px;margin: 0;">会员价：¥{{ item.price }}元</p>
-                            <button style="background-color: green; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">
-                                立即下单
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
+
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-image">
+                    <img src="./images/iv_wx.png" alt="跳转">
+                </div>
+                <div class="guide-text">
+                    <p>站外资源</p>
+                </div>
+            </div>
         </div>
 
+        <!-- 登录 -->
+        <div class="login-area">
+            <div class="login-item">
+                <p>登录</p>
+            </div>
 
-        <div id="contact" style="width: 30%; margin-right: 20px;">
-            <h2>{{title}}</h2>
-            <img :src="wxImg" style="width: 80%;">
-            <h2>邮箱</h2>
-            <p>技术支持：suirui0126@163.com</p>
+            <div class="login-item">
+                <p>注册</p>
+            </div>
         </div>
-    </div>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    title: "商品列表",
-                    dataList: [
-                        {
-                            "id": "1",
-                            "title": "vipon",
-                            "url": "https://myvipon.com/",
-                            "monthly_flow": "4.5M",
-                            "type": "首页贴",
-                            "aging": "每天只有3个位置，需要预约排队",
-                            "price": "1100",
-                            "require": "FBA; 四星以上; 30%以上；必须有code; 要提前预约，首页前三位1天，后2天随热度排名在其他区域",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "2",
-                            "title": "1 sale",
-                            "url": "https://www.1sale.com/",
-                            "monthly_flow": "721.2K",
-                            "type": "首页前7行",
-                            "aging": "1天",
-                            "price": "680",
-                            "require": "FBA; 首页前1-7行; 24小时首页帖+newsletter邮件推送，大多数可争取到前3排，优质Listing会尽力争取申请第一排第一位。",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "3",
-                            "title": "dealnews",
-                            "url": "https://www.dealnews.com/",
-                            "monthly_flow": "6.3M",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "1150",
-                            "require": "FBA ，上帖较快; 不接受临时涨价; 可以在周一~周五预约周六日的帖子。24小时展示在首页,要求历史低价,也支持FBM，要求店铺好评率不低于70%!",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "31",
-                            "title": "dealnews",
-                            "url": "https://www.dealnews.com/",
-                            "monthly_flow": "6.3M",
-                            "type": "首页8天24h滚动",
-                            "aging": "1-2天",
-                            "price": "2900",
-                            "require": "8天24小时滚动栏(Exclusive Discounts);2、当天上，中间可以暂停或者降价，不支持涨价，一个月内上完即可;按热度排序;3、按用户习惯展示，用户看过了，下一次再去搜索的时候，就会按热度排名了，每年10月-12月份涨价",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "32",
-                            "title": "dealnews",
-                            "url": "https://www.dealnews.com/",
-                            "monthly_flow": "6.3M",
-                            "type": "首页14天24h滚动",
-                            "aging": "1-2天",
-                            "price": "3800",
-                            "require": "14天24小时滚动栏(Exclusive Discounts);2、当天上，中间可以暂停或者降价，不支持涨价，一个月内上完即可;按热度排序;3、按用户习惯展示，用户看过了，下一次再去搜索的时候，就会按热度排名了，每年10月-12月份涨价",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "4",
-                            "title": "dansdeals",
-                            "url": "https://www.dansdeals.com/",
-                            "monthly_flow": "1.9M",
-                            "type": "编辑文章",
-                            "aging": "1-2天",
-                            "price": "3300",
-                            "require": "不接受临时涨价; DansDeals是一个美国知名的优惠和折扣信息分享网站，分享航空旅行相关攻略和折扣信息，网站上还有消费电子，家用家居等相关常规的deal折扣信息。推荐电子，家居家用，户外旅行等产品。编辑审核，提前2天预约",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "5",
-                            "title": "fabulesslyfrugal",
-                            "url": "https://fabulesslyfrugal.com/",
-                            "monthly_flow": "217.9K",
-                            "type": "编辑贴",
-                            "aging": "1-3天",
-                            "price": "240",
-                            "require": "编辑发帖，发帖时间1-3天，女性为主的网站，适合厨房、家居、烹饪、厨具、美妆、时尚类产品，女性用户达68%，不发违禁品",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "6",
-                            "title": "freestufffinder",
-                            "url": "https://www.freestufffinder.com/",
-                            "monthly_flow": "668.5K",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "1050",
-                            "require": "1星+2星<=10%，Review50+，最早评价发布2个月前，折扣不能仅针对会员，节假日价格会调整",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "7",
-                            "title": "edealinfo",
-                            "url": "https://www.edealinfo.com/",
-                            "monthly_flow": "2.1M",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "360",
-                            "require": "编辑帖，合作很久的编辑，上帖率高",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "72",
-                            "title": "edealinfo",
-                            "url": "https://www.edealinfo.com/",
-                            "monthly_flow": "2.1M",
-                            "type": "用户贴",
-                            "aging": "1天",
-                            "price": "30",
-                            "require": "折扣发布在用户分享界面，流量较小",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "8",
-                            "title": "ihotoffers",
-                            "url": "https://ihotoffers.com/",
-                            "monthly_flow": "737.5K",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "550",
-                            "require": "编辑发帖，适合电子产品、家居类、女性产品等",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "9",
-                            "title": "21usdeal",
-                            "url": "https://www.21usdeal.com/",
-                            "monthly_flow": "251.9K",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "580",
-                            "require": "中英文网站，在美华人首页，全品类，网站月访问量超88K，提交后1-2天发帖",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "10",
-                            "title": "swaggrabber",
-                            "url": "https://swaggrabber.com/",
-                            "monthly_flow": "44.1K",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "90",
-                            "require": "支持FBM; 要审帖; 不发成人用品，枪支，喜欢家庭友好型的产品，女性产品更适合，服装，家居，电子 ，宠物都可以试一下，有些产品出单不错！",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "11",
-                            "title": "shopsale",
-                            "url": "https://shopsale.com/",
-                            "monthly_flow": "77.5K",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "550",
-                            "require": "编辑贴，500k+ 读者",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "12",
-                            "title": "dealsofamerica",
-                            "url": "https://www.dealsofamerica.com/",
-                            "monthly_flow": "1.5M",
-                            "type": "首页贴",
-                            "aging": "1-2天",
-                            "price": "650",
-                            "require": "网站月度访问量200万，是美国本土折扣促销站点，家居/庭院/工具/电脑配件较受欢迎，其它品类都可尝试。促销活动由编辑审核并发布促销活动，发布后在首页展示，然后慢慢下沉。可发亚马逊可发沃尔玛，建议至少4星；折后价不高于同品类价",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "13",
-                            "title": "slickdeals",
-                            "url": "https://slickdeals.net/",
-                            "monthly_flow": "100M",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "200",
-                            "require": "北美最大的论坛类促销网站，亚马逊流量来源排名前10的资源。全品类，电子类最佳，家居美妆户外等,1、Feedback>1000 & 评价>50，评分4星以上，Fakespot要在C以上，折后价不高于Slickdeals同类，折扣码显示在前台。 2、上帖账号等级随机，不能指定。上帖无质保，如果被删了不会再重新上。 特殊日期不上贴。",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "131",
-                            "title": "slickdeals",
-                            "url": "https://slickdeals.net/",
-                            "monthly_flow": "100M",
-                            "type": "红人编辑贴",
-                            "aging": "1-2天",
-                            "price": "1300-2800",
-                            "require": "要求同上，红人质量不一样价格不一样，会影响帖子热度",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        },
-                        {
-                            "id": "14",
-                            "title": "Hip2save",
-                            "url": "https://hip2save.com/",
-                            "monthly_flow": "1.8M",
-                            "type": "编辑贴",
-                            "aging": "1-2天",
-                            "price": "3700",
-                            "require": "Fakespot.com上的评分必须为B或更高 1.产品必须有至少40条以上的正面评论和至少4颗星，并且没有近期的多个负面评论。50%off+优先上帖",
-                            "image_url": "https://xnoss-dev.xndeals.com/default/20240709/566868832251973.jpg"
-                        }
+    </header>
 
-                    ]
-                }
-            }
-        }).mount('#app');
+    <!-- 可上下滑动的内容区域 -->
+    <main>
+        <!-- 这里可以添加上下滑动的内容 -->
+        <div class="sort-view">
 
-        Vue.createApp({
-            data() {
-                return {
-                    title: "联系方式",
-                    wxImg: "./images/iv_wx.png"
-                }
-            }
-        }).mount('#contact');
-    </script>
+            <!-- 左侧 大类 -->
+            <div class="channel-pages">
+                <div class="item">美国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">美国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+                <div class="item">法国</div>
+            </div>
+
+            <div class="main-page">
+
+                <!-- 搜索栏 -->
+                <div class="search-page">
+
+                </div>
+
+                <!-- 数据 -->
+                <div class="data-page">
+
+                </div>
+
+                <!-- 翻页 -->
+                <div class="">
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </main>
+
+    <style>
+        /*  ======================================== 下面都是 logo ======================================== */
+        .logo {
+            width: 10%;
+            max-width: 10%;
+            padding: 4px;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            /* 垂直居中对齐 */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo .logo-container {
+            /* flex: 0 0 100px; */
+            /* 固定宽度 */
+            display: flex;
+            justify-content: center;
+            /* 水平居中对齐 */
+            align-items: center;
+            /* 垂直居中对齐 */
+            margin-right: 5px;
+            /* 间距 */
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .text-container {
+            flex: 1;
+            justify-content: center;
+            /* 水平居中对齐 */
+            align-items: center;
+            /* 自适应剩余宽度 */
+        }
+
+        .text-container p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /*  ======================================== 上面都是 logo ======================================== */
+
+
+        /*  ======================================== 下面都是 导航栏 ======================================== */
+        .guide-pages {
+            flex: 1;
+            /* 子组件等分区域 */
+            display: flex;
+            /* 使用 Flexbox */
+            justify-content: space-around;
+            /* 元素之间平均分配空间 */
+            align-items: center;
+            /* 间距 */
+            gap: 10px;
+            /* 子元素之间的间距 */
+        }
+
+        .guide-item {
+            height: 100%;
+            display: flex;
+            /* 设置为 Flexbox 布局 */
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+            /* padding: 4px; */
+        }
+
+        .guide-image {
+            display: flex;
+            justify-content: center;
+            /* 水平居中对齐 */
+            align-items: center;
+            /* 垂直居中对齐 */
+            margin-right: 4px;
+            /* 间距 */
+        }
+
+        .guide-image img {
+            width: 15px;
+            height: 15px;
+            border-radius: 8px;
+            /* 圆角效果 */
+        }
+
+        .guide-text {}
+
+        .guide-text p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /*  ======================================== 上面都是 导航栏 ======================================== */
+
+
+        /*  ======================================== 下面都是 登录 ======================================== */
+        .login-area {
+            width: 10%;
+            height: 100%;
+            max-width: 10%;
+            padding: 4px;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .login-item {
+            flex: 1;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 4px;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /*  ======================================== 上面都是 登录 ======================================== */
+
+
+        body {
+            margin: 0;
+            /* 去掉默认的边距 */
+            font-family: Arial, sans-serif;
+            /* 设置字体 */
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            /* 固定定位 */
+            top: 0;
+            /* 距离顶部 0 */
+            left: 0;
+            /* 距离左侧 0 */
+            width: 100%;
+            /* 宽度 100% */
+            height: 100px;
+            /* 高度 100% */
+            background-color: white;
+            /* 背景颜色 */
+            color: white;
+            /* 字体颜色 */
+            padding: 0px;
+            /* 内边距 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* 阴影效果 */
+            z-index: 1000;
+            /* 确保在其他元素之上 */
+        }
+
+        main {
+            margin-top: 100px;
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 100px);
+            flex: 1;
+        }
+
+        .sort-view {
+            display: flex;
+            /* 启用 Flexbox */
+            justify-content: space-between;
+            /* 水平分布，子元素之间的间距相等 */
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+
+        .channel-pages {
+            display: flex;
+            /* 启用 Flexbox */
+            flex-direction: column;
+            /* 垂直排列子组件 */
+            align-items: flex-start;
+            /* 水平对齐方式，可以改为 center 或 flex-end */
+            padding: 20px;
+            /* 外边距，上下各10px */
+            border: 1px solid #ccc;
+            /* 边框 */
+            border-radius: 5px;
+            /* 圆角边框 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* 阴影效果 */
+            display: inline-block;
+            /* 使父元素宽度根据子元素自动调整 */
+        }
+
+        .channel-pages .item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 5px 0;
+            /* 每个项目之间的间距 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .main-page {
+            display: flex;
+            /* 启用 Flexbox */
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            flex: 1;
+            /* 每个子元素占据相同的空间 */
+            margin: 5px;
+            /* 子元素之间的间距 */
+        }
+    </style>
 </body>
 
 </html>
