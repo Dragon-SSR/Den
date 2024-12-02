@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -114,7 +114,22 @@
 
             <!-- 左侧 大类 -->
             <div class="channel-pages">
+                <p>地区&渠道</p>
                 <div class="item">美国</div>
+                <div class="accordion-content">
+                    <p>这是目录项 2 的详细内容。</p>
+                    <p>内容行 1</p>
+                    <p>内容行 2</p>
+                    <p>内容行 3</p>
+                    <p>内容行 4</p>
+                    <p>内容行 5</p>
+                    <p>内容行 6</p>
+                    <p>内容行 7</p>
+                    <p>内容行 8</p>
+                    <p>内容行 9</p>
+                    <p>内容行 10</p>
+                    <p>内容行 11</p>
+                </div>
                 <div class="item">法国</div>
                 <div class="item">法国</div>
                 <div class="item">法国</div>
@@ -337,7 +352,6 @@
 
         main {
             margin-top: 100px;
-            padding: 20px;
             overflow-y: auto;
             height: calc(100vh - 100px);
             flex: 1;
@@ -350,7 +364,7 @@
             /* 水平分布，子元素之间的间距相等 */
             padding: 10px;
             border: 1px solid #ccc;
-            background-color: #f0f0f0;
+            background-color: rgb(229, 231, 235);
         }
 
         .channel-pages {
@@ -360,7 +374,10 @@
             /* 垂直排列子组件 */
             align-items: flex-start;
             /* 水平对齐方式，可以改为 center 或 flex-end */
-            padding: 20px;
+            padding-left: 54.25px;
+            padding-right: 54.25px;
+            padding-top: 8.75px;
+            padding-bottom: 35px;
             /* 外边距，上下各10px */
             border: 1px solid #ccc;
             /* 边框 */
@@ -370,6 +387,10 @@
             /* 阴影效果 */
             display: inline-block;
             /* 使父元素宽度根据子元素自动调整 */
+            width: 10%;
+            max-width: 300px;
+            background-color: white;
+
         }
 
         .channel-pages .item {
@@ -379,6 +400,20 @@
             /* 每个项目之间的间距 */
             border: 1px solid #ddd;
             border-radius: 4px;
+        }
+
+        .accordion-content {
+            max-height: 200px;
+            /* 设置最大高度 */
+            overflow-y: auto;
+            /* 允许垂直滚动 */
+            display: none;
+            /* 默认隐藏内容 */
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            /* 上边框 */
+            background-color: #f9f9f9;
+            /* 内容背景色 */
         }
 
         .main-page {
@@ -393,6 +428,15 @@
             /* 子元素之间的间距 */
         }
     </style>
+
+    <script>
+        document.querySelectorAll('.item').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block'; // 切换显示状态
+            });
+        });
+    </script>
 </body>
 
 </html>
